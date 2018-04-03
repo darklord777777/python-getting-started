@@ -1,0 +1,1624 @@
+import telebot
+from telebot import types
+
+
+git clone git@github.com:heroku/python-getting-started.git
+cd python-getting-started
+
+pipenv install
+
+createdb python_getting_started
+
+python manage.py migrate
+python manage.py collectstatic
+
+heroku local
+
+def log(message, answer):
+    print("/n ------")
+    from datetime import datetime
+    print(datetime.now())
+    print("Сообщение от {0} {1}. (id = {2}) \n Текст = {3}".format(message.from_user.first_name, message.from_user.last_name, str(message.from_user.id), message.text))
+
+kk = 'Кек'
+ll = 'Лол'
+kl = 'КекЛол'
+lk = 'ЛолКек'
+klk = 'КеклолКек'
+kkc = '1000'
+llc = '1000'
+klc = '1000'
+lkc = '1000'
+klkc = '1000'
+qw = '79142371237'
+cl = 'Отменить заказ'
+
+
+@bot.message_handler(commands=['start'])
+def handle_text(message):
+        answer = 'Приветствую ✋🏻! Нажмите "Город" , чтобы выбрать ваш город 🏢 и сделать заказ 🎁. Нажмите "Меню" , чтобы посмотреть цены 💲 и наличие товара 🎁. Также требуются работники 📬🖍 с высокой зароботной платой💰💰💰, для работы необходим залог, подробности в тех.поддержку. Тех.поддержка: @KekLolSupp.'
+        log(message, answer)
+        markup = types.ReplyKeyboardMarkup(row_width=1)
+        itembtn1 = types.KeyboardButton('Город')
+        itembtn2 = types.KeyboardButton('Меню')
+        itembtn3 = types.KeyboardButton('Стоп')
+        markup.add(itembtn1, itembtn2, itembtn3)
+        bot.send_message(message.from_user.id, answer, reply_markup=markup)
+
+
+@bot.message_handler(content_types=['text'])
+def handle_text(message):
+ if message.text == "Город":
+    answer = 'Выберете ваш город 🏢'
+    log(message, answer)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton('Владивосток')
+    itembtn2 = types.KeyboardButton('Артем')
+    itembtn3 = types.KeyboardButton('Уссурийск')
+    itembtn4 = types.KeyboardButton('Находка')
+    itembtn5 = types.KeyboardButton('Арсеньев')
+    itembtn6 = types.KeyboardButton('Назад')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, answer, reply_markup=markup)
+
+ elif message.text == "Владивосток":
+       ans = 'Выберете ваш микрорайон 🏢'
+       log(message, ans)
+       markup = types.ReplyKeyboardMarkup(row_width=1)
+       itembtn8 = types.KeyboardButton('Советский')
+       itembtn9 = types.KeyboardButton('Первомайский')
+       itembtn10 = types.KeyboardButton('Ленинский')
+       itembtn11 = types.KeyboardButton('Первореченский')
+       itembtn12 = types.KeyboardButton('Фрунзенский')
+       itembtn13 = types.KeyboardButton('Назад к выбору города')
+       itembtn14 = types.KeyboardButton('Стоп')
+       markup.add(itembtn8, itembtn9, itembtn10, itembtn11, itembtn12, itembtn13, itembtn14)
+       bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Назад к выбору района":
+       ans = 'Выберете ваш микрорайон 🏢'
+       log(message, ans)
+       markup = types.ReplyKeyboardMarkup(row_width=1)
+       itembtn8 = types.KeyboardButton('Советский')
+       itembtn9 = types.KeyboardButton('Первомайский')
+       itembtn10 = types.KeyboardButton('Ленинский')
+       itembtn11 = types.KeyboardButton('Первореченский')
+       itembtn12 = types.KeyboardButton('Фрунзенский')
+       itembtn13 = types.KeyboardButton('Назад к выбору города')
+       itembtn14 = types.KeyboardButton('Стоп')
+       markup.add(itembtn8, itembtn9, itembtn10, itembtn11, itembtn12, itembtn13, itembtn14)
+       bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+ elif message.text == "Назад к выбору города":
+    ans = 'Выберете ваш город 🏢'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton('Владивосток')
+    itembtn2 = types.KeyboardButton('Артем')
+    itembtn3 = types.KeyboardButton('Уссурийск')
+    itembtn4 = types.KeyboardButton('Находка')
+    itembtn5 = types.KeyboardButton('Арсеньев')
+    itembtn6 = types.KeyboardButton('Назад')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Советский":
+    ans = 'Что у нас есть🔥'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton(kk + ' в Советском районе Владивостока')
+    itembtn2 = types.KeyboardButton(ll + ' в Советском районе Владивостока')
+    itembtn3 = types.KeyboardButton(lk + ' в Советском районе Владивостока')
+    itembtn4 = types.KeyboardButton(kl + ' в Советском районе Владивостока')
+    itembtn5 = types.KeyboardButton(klk + ' в Советском районе Владивостока')
+    itembtn6 = types.KeyboardButton('Назад к выбору района')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Первомайский":
+    ans = 'Что у нас есть🔥'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton(kk + ' в Первомайском районе Владивостока')
+    itembtn2 = types.KeyboardButton(ll + ' в Первомайском районе Владивостока')
+    itembtn3 = types.KeyboardButton(lk + ' в Первомайском районе Владивостока')
+    itembtn4 = types.KeyboardButton(kl + ' в Первомайском районе Владивостока')
+    itembtn5 = types.KeyboardButton(klk + ' в Первомайском районе Владивостока')
+    itembtn6 = types.KeyboardButton('Назад к выбору района')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Ленинский":
+    ans = 'Что у нас есть🔥'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton(kk + ' в Ленинском районе Владивостока')
+    itembtn2 = types.KeyboardButton(ll + ' в Ленинском районе Владивостока')
+    itembtn3 = types.KeyboardButton(lk + ' в Ленинском районе Владивостока')
+    itembtn4 = types.KeyboardButton(kl + ' в Ленинском районе Владивостока')
+    itembtn5 = types.KeyboardButton(klk + ' в Ленинском районе Владивостока')
+    itembtn6 = types.KeyboardButton('Назад к выбору района')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Первореченский":
+    ans = 'Что у нас есть🔥'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton(kk + ' в Первореченском районе Владивостока')
+    itembtn2 = types.KeyboardButton(ll + ' в Первореченском районе Владивостока')
+    itembtn3 = types.KeyboardButton(lk + ' в Первореченском районе Владивостока')
+    itembtn4 = types.KeyboardButton(kl + ' в Первореченском районе Владивостока')
+    itembtn5 = types.KeyboardButton(klk + ' в Первореченском районе Владивостока')
+    itembtn6 = types.KeyboardButton('Назад к выбору района')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Фрунзенский":
+        ans = 'Что у нас есть🔥'
+        log(message, ans)
+        markup = types.ReplyKeyboardMarkup(row_width=1)
+        itembtn1 = types.KeyboardButton(kk + ' во Фрунзенском районе Владивостока')
+        itembtn2 = types.KeyboardButton(ll + ' во Фрунзенском районе Владивостока')
+        itembtn3 = types.KeyboardButton(lk + ' во Фрунзенском районе Владивостока')
+        itembtn4 = types.KeyboardButton(kl + ' во Фрунзенском районе Владивостока')
+        itembtn5 = types.KeyboardButton(klk + ' во Фрунзенском районе Владивостока')
+        itembtn6 = types.KeyboardButton('Назад к выбору района')
+        itembtn7 = types.KeyboardButton('Стоп')
+        markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+        bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Артем":
+    ans = 'Что у нас есть🔥'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton(kk + ' в Артеме')
+    itembtn2 = types.KeyboardButton(ll + ' в Артеме')
+    itembtn3 = types.KeyboardButton(lk + ' в Артеме')
+    itembtn4 = types.KeyboardButton(kl + ' в Артеме')
+    itembtn5 = types.KeyboardButton(klk + ' в Артеме')
+    itembtn6 = types.KeyboardButton('Назад к выбору города')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Уссурийск":
+    ans = 'Что у нас есть🔥'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton(kk + ' в Уссурийске')
+    itembtn2 = types.KeyboardButton(ll + ' в Уссурийске')
+    itembtn3 = types.KeyboardButton(lk + ' в Уссурийске')
+    itembtn4 = types.KeyboardButton(kl + ' в Уссурийске')
+    itembtn5 = types.KeyboardButton(klk + ' в Уссурийске')
+    itembtn6 = types.KeyboardButton('Назад к выбору города')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Находка":
+    ans = 'Что у нас есть🔥'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton(kk + ' в Находке')
+    itembtn2 = types.KeyboardButton(ll + ' в Находке')
+    itembtn3 = types.KeyboardButton(lk + ' в Находке')
+    itembtn4 = types.KeyboardButton(kl + ' в Находке')
+    itembtn5 = types.KeyboardButton(klk + ' в Находке')
+    itembtn6 = types.KeyboardButton('Назад к выбору города')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Арсеньев":
+    ans = 'Что у нас есть🔥'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton(kk + ' в Арсеньеве')
+    itembtn2 = types.KeyboardButton(ll + ' в Арсеньеве')
+    itembtn3 = types.KeyboardButton(lk + ' в Арсеньеве')
+    itembtn4 = types.KeyboardButton(kl + ' в Арсеньеве')
+    itembtn5 = types.KeyboardButton(klk + ' в Арсеньеве')
+    itembtn6 = types.KeyboardButton('Назад к выбору города')
+    itembtn7 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+
+ elif message.text == kk + " в Артеме":
+     ans = 'Вы действительно хотите заказать в Артеме❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kk +' в Артеме')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Артеме')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == ll + " в Артеме":
+     ans = 'Вы действительно хотите заказать в Артеме❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ ll +' в Артеме')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Артеме')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == lk + " в Артеме":
+     ans = 'Вы действительно хотите заказать в Артеме❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ lk +' в Артеме')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Артеме')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == kl + " в Артеме":
+     ans = 'Вы действительно хотите заказать в Артеме❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kl +' в Артеме')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Артеме')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == klk + " в Артеме":
+     ans = 'Вы действительно хотите заказать в Артеме❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ klk +' в Артеме')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Артеме')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Заказать "+ kk +" в Артеме":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kk +" в Артеме! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ kkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ ll +" в Артеме":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ ll +" в Артеме! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ llc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ lk +" в Артеме":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ lk +" в Артеме! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ lkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+ elif message.text == "Заказать "+ kl +" в Артеме":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kl +" в Артеме! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ klk +" в Артеме":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer = "Вы зарезервировали "+ klk +" в Артеме! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Назад к выбору товара в Артеме":
+     ans = 'Что у нас есть🔥'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton(kk + ' в Артеме')
+     itembtn2 = types.KeyboardButton(ll + ' в Артеме')
+     itembtn3 = types.KeyboardButton(lk + ' в Артеме')
+     itembtn4 = types.KeyboardButton(kl + ' в Артеме')
+     itembtn5 = types.KeyboardButton(klk + ' в Артеме')
+     itembtn6 = types.KeyboardButton('Назад к выбору города')
+     itembtn7 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+
+
+ elif message.text == kk + " в Уссурийске":
+     ans = 'Вы действительно хотите заказать в Уссурийске❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kk +' в Уссурийске')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Уссурийске')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == ll + " в Уссурийске":
+     ans = 'Вы действительно хотите заказать в Уссурийске❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ ll +' в Уссурийске')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Уссурийске')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == lk + " в Уссурийске":
+     ans = 'Вы действительно хотите заказать в Уссурийске❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ lk +' в Уссурийске')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Уссурийске')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == kl + " в Уссурийске":
+     ans = 'Вы действительно хотите заказать в Уссурийске❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kl +' в Уссурийске')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Уссурийске')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == klk + " в Уссурийске":
+     ans = 'Вы действительно хотите заказать в Уссурийске❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ klk +' в Уссурийске')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Уссурийске')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Заказать "+ kk +" в Уссурийске":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kk +" в Уссурийске! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ kkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+ elif message.text == "Заказать "+ ll +" в Уссурийске":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ ll +" в Уссурийске! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ llc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ lk +" в Уссурийске":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ lk +" в Уссурийске! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ lkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ kl +" в Уссурийске":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kl +" в Уссурийске! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ klk +" в Уссурийске":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer = "Вы зарезервировали "+ klk +" в Уссурийске! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Назад к выбору товара в Уссурийске":
+     ans = 'Что у нас есть🔥'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton(kk + ' в Уссурийске')
+     itembtn2 = types.KeyboardButton(ll + ' в Уссурийске')
+     itembtn3 = types.KeyboardButton(lk + ' в Уссурийске')
+     itembtn4 = types.KeyboardButton(kl + ' в Уссурийске')
+     itembtn5 = types.KeyboardButton(klk + ' в Уссурийске')
+     itembtn6 = types.KeyboardButton('Назад к выбору города')
+     itembtn7 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+
+
+
+ elif message.text == kk + " в Находке":
+     ans = 'Вы действительно хотите заказать в Находке❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kk +' в Находке')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Находке')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == ll + " в Находке":
+     ans = 'Вы действительно хотите заказать в Находке❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ ll +' в Находке')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Находке')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == lk + " в Находке":
+     ans = 'Вы действительно хотите заказать в Находке❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ lk +' в Находке')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Находке')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == kl + " в Находке":
+     ans = 'Вы действительно хотите заказать в Находке❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kl +' в Находке')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Находке')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == klk + " в Находке":
+     ans = 'Вы действительно хотите заказать в Находке❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ klk +' в Находке')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Находке')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Заказать "+ kk +" в Находке":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kk +" в Находке! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ kkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ ll +" в Находке":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ ll +" в Находке! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ llc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ lk +" в Находке":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ lk +" в Находке! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ lkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ kl +" в Находке":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kl +" в Находке! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ klk +" в Находке":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer = "Вы зарезервировали "+ klk +" в Находке! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Назад к выбору товара в Находке":
+     ans = 'Что у нас есть🔥'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton(kk + ' в Находке')
+     itembtn2 = types.KeyboardButton(ll + ' в Находке')
+     itembtn3 = types.KeyboardButton(lk + ' в Находке')
+     itembtn4 = types.KeyboardButton(kl + ' в Находке')
+     itembtn5 = types.KeyboardButton(klk + ' в Находке')
+     itembtn6 = types.KeyboardButton('Назад к выбору города')
+     itembtn7 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+
+
+ elif message.text == kk + " в Арсеньеве":
+     ans = 'Вы действительно хотите заказать в Арсеньеве❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kk +' в Арсеньеве')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Арсеньеве')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == ll + " в Арсеньеве":
+     ans = 'Вы действительно хотите заказать в Арсеньеве❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ ll +' в Арсеньеве')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Арсеньеве')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == lk + " в Арсеньеве":
+     ans = 'Вы действительно хотите заказать в Арсеньеве❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ lk +' в Арсеньеве')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Арсеньеве')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == kl + " в Арсеньеве":
+     ans = 'Вы действительно хотите заказать в Арсеньеве❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kl +' в Арсеньеве')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Арсеньеве')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == klk + " в Арсеньеве":
+     ans = 'Вы действительно хотите заказать в Арсеньеве❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ klk +' в Арсеньеве')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Арсеньеве')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Заказать "+ kk +" в Арсеньеве":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kk +" в Арсеньеве! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ kkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while False:
+      if message.text == cl:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ ll +" в Арсеньеве":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ ll +" в Арсеньеве! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ llc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+ elif message.text == "Заказать "+ lk +" в Арсеньеве":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ lk +" в Арсеньеве! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ lkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ kl +" в Арсеньеве":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kl +" в Арсеньеве! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ klk +" в Арсеньеве":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer = "Вы зарезервировали "+ klk +" в Арсеньеве! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Назад к выбору товара в Арсеньеве":
+     ans = 'Что у нас есть🔥'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton(kk + ' в Арсеньеве')
+     itembtn2 = types.KeyboardButton(ll + ' в Арсеньеве')
+     itembtn3 = types.KeyboardButton(lk + ' в Арсеньеве')
+     itembtn4 = types.KeyboardButton(kl + ' в Арсеньеве')
+     itembtn5 = types.KeyboardButton(klk + ' в Арсеньеве')
+     itembtn6 = types.KeyboardButton('Назад к выбору города')
+     itembtn7 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+
+
+ elif message.text == kk + " в Советском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Советском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kk +' в Советском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Советском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == ll + " в Советском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Советском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ ll +' в Советском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Советском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == lk + " в Советском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Советском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ lk +' в Советском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Советском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == kl + " в Советском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Советском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kl +' в Советском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Советском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == klk + " в Советском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Советском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ klk +' в Советском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Советском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Заказать "+ kk +" в Советском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kk +" в Советском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ kkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ ll +" в Советском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ ll +" в Советском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ llc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ lk +" в Советском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ lk +" в Советском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ lkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ kl +" в Советском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kl +" в Советском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ klk +" в Советском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer = "Вы зарезервировали "+ klk +" в Советском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Назад к выбору товара в Советском районе Владивостока":
+     ans = 'Что у нас есть🔥'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton(kk + ' в Советском районе Владивостока')
+     itembtn2 = types.KeyboardButton(ll + ' в Советском районе Владивостока')
+     itembtn3 = types.KeyboardButton(lk + ' в Советском районе Владивостока')
+     itembtn4 = types.KeyboardButton(kl + ' в Советском районе Владивостока')
+     itembtn5 = types.KeyboardButton(klk + ' в Советском районе Владивостока')
+     itembtn6 = types.KeyboardButton('Назад к выбору города')
+     itembtn7 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+
+
+ elif message.text == kk + " в Первомайском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первомайском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kk +' в Первомайском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первомайском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == ll + " в Первомайском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первомайском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ ll +' в Первомайском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первомайском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == lk + " в Первомайском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первомайском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ lk +' в Первомайском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первомайском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == kl + " в Первомайском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первомайском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kl +' в Первомайском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первомайском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == klk + " в Первомайском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первомайском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ klk +' в Первомайском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первомайском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Заказать "+ kk +" в Первомайском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kk +" в Первомайском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ kkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+ elif message.text == "Заказать "+ ll +" в Первомайском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ ll +" в Первомайском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ llc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ lk +" в Первомайском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ lk +" в Первомайском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ lkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ kl +" в Первомайском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kl +" в Первомайском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ klk +" в Первомайском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer = "Вы зарезервировали "+ klk +" в Первомайском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Назад к выбору товара в Первомайском районе Владивостока":
+     ans = 'Что у нас есть🔥'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton(kk + ' в Первомайском районе Владивостока')
+     itembtn2 = types.KeyboardButton(ll + ' в Первомайском районе Владивостока')
+     itembtn3 = types.KeyboardButton(lk + ' в Первомайском районе Владивостока')
+     itembtn4 = types.KeyboardButton(kl + ' в Первомайском районе Владивостока')
+     itembtn5 = types.KeyboardButton(klk + ' в Первомайском районе Владивостока')
+     itembtn6 = types.KeyboardButton('Назад к выбору города')
+     itembtn7 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+
+ elif message.text == kk + " в Первореченском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первореченском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kk +' в Первореченском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первореченском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == ll + " в Первореченском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первореченском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ ll +' в Первореченском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первореченском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == lk + " в Первореченском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первореченском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ lk +' в Первореченском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первореченском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == kl + " в Первореченском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первореченском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kl +' в Первореченском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первореченском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == klk + " в Первореченском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Первореченском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ klk +' в Первореченском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Первореченском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Заказать "+ kk +" в Первореченском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kk +" в Первореченском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ kkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ ll +" в Первореченском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ ll +" в Первореченском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ llc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ lk +" в Первореченском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ lk +" в Первореченском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ lkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ kl +" в Первореченском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kl +" в Первореченском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ klk +" в Первореченском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer = "Вы зарезервировали "+ klk +" в Первореченском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Назад к выбору товара в Первореченском районе Владивостока":
+     ans = 'Что у нас есть🔥'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton(kk + ' в Первореченском районе Владивостока')
+     itembtn2 = types.KeyboardButton(ll + ' в Первореченском районе Владивостока')
+     itembtn3 = types.KeyboardButton(lk + ' в Первореченском районе Владивостока')
+     itembtn4 = types.KeyboardButton(kl + ' в Первореченском районе Владивостока')
+     itembtn5 = types.KeyboardButton(klk + ' в Первореченском районе Владивостока')
+     itembtn6 = types.KeyboardButton('Назад к выбору города')
+     itembtn7 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+
+
+ elif message.text == kk + " во Фрунзенском районе Владивостока":
+     ans = 'Вы действительно хотите заказать во Фрунзенском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kk +' во Фрунзенском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара во Фрунзенском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == ll + " во Фрунзенском районе Владивостока":
+     ans = 'Вы действительно хотите заказать во Фрунзенском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ ll +' во Фрунзенском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара во Фрунзенском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == lk + " во Фрунзенском районе Владивостока":
+     ans = 'Вы действительно хотите заказать во Фрунзенском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ lk +' во Фрунзенском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара во Фрунзенском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == kl + " во Фрунзенском районе Владивостока":
+     ans = 'Вы действительно хотите заказать во Фрунзенском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kl +' во Фрунзенском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара во Фрунзенском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == klk + " во Фрунзенском районе Владивостока":
+     ans = 'Вы действительно хотите заказать во Фрунзенском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ klk +' во Фрунзенском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара во Фрунзенском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Заказать "+ kk +" во Фрунзенском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kk +" во Фрунзенском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ kkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ ll +" во Фрунзенском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ ll +" во Фрунзенском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ llc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ lk +" во Фрунзенском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ lk +" во Фрунзенском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ lkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ kl +" во Фрунзенском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kl +" во Фрунзенском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ klk +" во Фрунзенском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer = "Вы зарезервировали "+ klk +" во Фрунзенском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Назад к выбору товара во Фрунзенском районе Владивостока":
+     ans = 'Что у нас есть🔥'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton(kk + ' во Фрунзенском районе Владивостока')
+     itembtn2 = types.KeyboardButton(ll + ' во Фрунзенском районе Владивостока')
+     itembtn3 = types.KeyboardButton(lk + ' во Фрунзенском районе Владивостока')
+     itembtn4 = types.KeyboardButton(kl + ' во Фрунзенском районе Владивостока')
+     itembtn5 = types.KeyboardButton(klk + ' во Фрунзенском районе Владивостока')
+     itembtn6 = types.KeyboardButton('Назад к выбору города')
+     itembtn7 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+
+
+
+ elif message.text == kk + " в Ленинском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Ленинском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kk +' в Ленинском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Ленинском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == ll + " в Ленинском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Ленинском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ ll +' в Ленинском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Ленинском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == lk + " в Ленинском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Ленинском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ lk +' в Ленинском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Ленинском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == kl + " в Ленинском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Ленинском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ kl +' в Ленинском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Ленинском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == klk + " в Ленинском районе Владивостока":
+     ans = 'Вы действительно хотите заказать в Ленинском районе Владивостока❓'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Заказать '+ klk +' в Ленинском районе Владивостока')
+     itembtn2 = types.KeyboardButton('Назад к выбору товара в Ленинском районе Владивостока')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Заказать "+ kk +" в Ленинском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kk +" в Ленинском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ kkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ ll +" в Ленинском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ ll +" в Ленинском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ llc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ lk +" в Ленинском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ lk +" в Ленинском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ lkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+ elif message.text == "Заказать "+ kl +" в Ленинском районе Владивостока":
+     markup = types.ReplyKeyboardMarkup(row_width=2)
+     itembtn1 = types.KeyboardButton('Проверить статус платежа')
+     itembtn2 = types.KeyboardButton('Отменить заказ')
+     answer =  "Вы зарезервировали "+ kl +" в Ленинском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+     log(message, answer)
+     markup.add(itembtn1, itembtn2)
+     bot.send_message(message.from_user.id, answer, reply_markup=markup)
+     import datetime as dt
+     t = dt.datetime.now()
+     while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+
+ elif message.text == "Заказать "+ klk +" в Ленинском районе Владивостока":
+      markup = types.ReplyKeyboardMarkup(row_width=2)
+      itembtn1 = types.KeyboardButton('Проверить статус платежа')
+      itembtn2 = types.KeyboardButton('Отменить заказ')
+      answer = "Вы зарезервировали "+ klk +" в Ленинском районе Владивостока! Для оплаты заказа переведите на номер киви кошелька "+ qw +" с коментарием 2281 , стоимость заказа "+ klkc +"р. НАЖИМАЙТЕ 'Проверить статус платежа' ТОЛЬКО ПОСЛЕ ОПЛАТЫ ЗАКАЗА❗️❗️❗️"
+      log(message, answer)
+      markup.add(itembtn1, itembtn2)
+      bot.send_message(message.from_user.id, answer, reply_markup=markup)
+      import datetime as dt
+      t = dt.datetime.now()
+      while True:
+       delta = dt.datetime.now() - t
+       if delta.seconds >= 60:
+         bot.send_message(message.from_user.id, answer, reply_markup=markup)
+         t = dt.datetime.now()
+
+
+
+
+
+
+
+ elif message.text == "Назад к выбору товара в Ленинском районе Владивостока":
+      ans = 'Что у нас есть🔥'
+      log(message, ans)
+      markup = types.ReplyKeyboardMarkup(row_width=1)
+      itembtn1 = types.KeyboardButton(kk + ' в Ленинском районе Владивостока')
+      itembtn2 = types.KeyboardButton(ll + ' в Ленинском районе Владивостока')
+      itembtn3 = types.KeyboardButton(lk + ' в Ленинском районе Владивостока')
+      itembtn4 = types.KeyboardButton(kl + ' в Ленинском районе Владивостока')
+      itembtn5 = types.KeyboardButton(klk + ' в Ленинском районе Владивостока')
+      itembtn6 = types.KeyboardButton('Назад к выбору города')
+      itembtn7 = types.KeyboardButton('Стоп')
+      markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5, itembtn6, itembtn7)
+      bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+
+ elif message.text == "Меню":
+    ans = kk + ' цена '+ kkc+ 'р 🌲. ' + ll + ' цена ' + llc + ' р ☕. ' + lk + ' цена ' + lkc + 'р 🐖. ' + kl + ' цена ' + klc +'р 🌳.' + klk + ' цена ' + klkc +'р 🍞. Нажмите "Город" , чтобы выбрать ваш город и сделать заказ.'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton('Город')
+    itembtn2 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+
+ elif message.text == "Назад":
+    ans = 'Нажмите "Город" , чтобы выбрать ваш город 🏢 и сделать заказ 🎁. Нажмите "Меню" , чтобы посмотреть цены 💲 и наличие товара. 🎁 Также требуются работники 📬🖍 с высокой зароботной платой💰💰💰, для работы необходим залог, подробности в тех.поддержку. Тех.поддержка: @KekLolSupp.'
+    log(message, ans)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    itembtn1 = types.KeyboardButton('Город')
+    itembtn2 = types.KeyboardButton('Меню')
+    itembtn3 = types.KeyboardButton('Стоп')
+    markup.add(itembtn1, itembtn2, itembtn3)
+    bot.send_message(message.from_user.id, ans, reply_markup=markup)
+
+ elif message.text == "Проверить статус платежа":
+    markup = types.ReplyKeyboardMarkup(row_width=2)
+    itembtn1 = types.KeyboardButton('Проверить статус платежа')
+    itembtn2 = types.KeyboardButton('Отменить заказ')
+    answer = "ОЖИДАЕМ ОПЛАТЫ 💲💲💲"
+    log(message, answer)
+    markup.add(itembtn1, itembtn2)
+    bot.send_message(message.from_user.id, answer, reply_markup=markup)
+
+ elif message.text == "Отменить заказ":
+   markup = types.ReplyKeyboardRemove()
+   answer = "Вы забанены на 5 минут, запрещено резервировать заказ без оплаты❗️❗️❗️"
+   log(message, answer)
+   bot.send_message(message.from_user.id, answer, reply_markup=markup)
+
+ elif message.text == "Стоп":
+    answer = "До скорой встречи!🤘🏻"
+    log(message, answer)
+    markup = types.ReplyKeyboardRemove()
+    bot.send_message(message.from_user.id, answer, reply_markup=markup)
+
+ else:
+
+     ans = 'Нажмите "Город" , чтобы выбрать ваш город 🏢 и сделать заказ 🎁. Нажмите "Меню" , чтобы посмотреть цены 💲 и наличие товара 🎁. Также требуются работники 📬🖍 с высокой зароботной платой💰💰💰, для работы необходим залог, подробности в тех.поддержку. Тех.поддержка: @KekLolSupp.'
+     log(message, ans)
+     markup = types.ReplyKeyboardMarkup(row_width=1)
+     itembtn1 = types.KeyboardButton('Город')
+     itembtn2 = types.KeyboardButton('Меню')
+     itembtn3 = types.KeyboardButton('Стоп')
+     markup.add(itembtn1, itembtn2, itembtn3)
+     bot.send_message(message.from_user.id, ans, reply_markup=markup)
+bot.polling(none_stop=True)
